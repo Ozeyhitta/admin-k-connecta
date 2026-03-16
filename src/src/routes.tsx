@@ -1,28 +1,19 @@
 import { createBrowserRouter } from 'react-router';
-import { AuthLayout } from './layouts';
-import { LoginPage, RegisterPage } from './features/auth';
-import { HomePage } from './pages/Home';
+import { AuthLayout, DashboardLayout } from './layouts';
+import { LoginPage } from './features/auth';
+import { DashboardPage } from './pages/Dashboard';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/auth',
     element: <AuthLayout />,
     children: [
       {
-        path: 'login',
+        index: true,
         element: <LoginPage />,
-      },
-      {
-        path: 'register',
-        element: <RegisterPage />,
       },
     ],
   },
-  // Shortcut routes
   {
     path: '/login',
     element: <AuthLayout />,
@@ -34,12 +25,12 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/register',
-    element: <AuthLayout />,
+    path: '/dashboard',
+    element: <DashboardLayout />,
     children: [
       {
         index: true,
-        element: <RegisterPage />,
+        element: <DashboardPage />,
       },
     ],
   },

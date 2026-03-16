@@ -2,11 +2,13 @@ import { useForm } from "react-hook-form@7.55.0";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { LoginFormData } from "../../types/auth.types";
 
 export const LoginForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,8 +17,10 @@ export const LoginForm = () => {
 
   const onSubmit = async (data: LoginFormData) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log("Login data:", data);
+    // Redirect to dashboard after successful login
+    navigate('/dashboard');
     setIsSubmitting(false);
   };
 

@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { LoginForm } from '../components/LoginForm';
-import { Link } from 'react-router';
 
 export const LoginPage = () => {
   return (
@@ -47,24 +46,6 @@ export const LoginPage = () => {
 
           {/* Login Form */}
           <LoginForm />
-
-          {/* Sign Up Link */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-8 pt-6 border-t border-gray-100 text-center"
-          >
-            <p className="text-sm text-gray-600">
-              Chưa có tài khoản?{' '}
-              <Link
-                to="/register"
-                className="text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
-              >
-                Đăng ký ngay
-              </Link>
-            </p>
-          </motion.div>
         </div>
 
         {/* Footer */}
